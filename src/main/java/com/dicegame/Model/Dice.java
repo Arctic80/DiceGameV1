@@ -1,4 +1,4 @@
-package com.dicegame;
+package com.dicegame.Model;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -6,13 +6,13 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Dice
 {
     private int rollValue;
-    private ThreadLocalRandom randomizer = ThreadLocalRandom.current();
+    private ThreadLocalRandom random = ThreadLocalRandom.current();
 
     public Dice(){}
 
     public void rollDice()
     {
-        rollValue = randomizer.nextInt(1,8);
+        rollValue = random.nextInt(1,7);
     }
 
     public int getRollValue()

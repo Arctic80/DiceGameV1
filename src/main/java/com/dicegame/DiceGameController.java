@@ -1,7 +1,8 @@
 package com.dicegame;
 
+import com.dicegame.Controller.GameController;
+import com.dicegame.Model.PlayResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
@@ -25,9 +26,9 @@ public class DiceGameController
     }
 
     @RequestMapping(value = "/listResults", method = RequestMethod.GET)
-    public List<DiceRollResult> listResults()
+    public List<PlayResult> listResults()
     {
-        return gameController.listRollResults();
+        return gameController.listPlayResults();
     }
 
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)

@@ -1,13 +1,17 @@
-package com.dicegame;
+package com.dicegame.Controller;
+
+import com.dicegame.Model.Dice;
+import com.dicegame.Model.PlayResult;
+import com.dicegame.Model.Player;
 
 import java.util.List;
+
 
 public class GameController
 {
     Player player;
 
     public GameController(){}
-
 
     public void createPlayer(String name)
     {
@@ -21,21 +25,22 @@ public class GameController
 
         dice1.rollDice();
         dice2.rollDice();
-        DiceRollResult diceRollResult = new DiceRollResult(dice1.getRollValue(), dice2.getRollValue());
-        player.addRollResult(diceRollResult);
 
-        System.out.println(diceRollResult.getRollValue());
+        PlayResult playResult = new PlayResult(dice1.getRollValue(), dice2.getRollValue());
+        player.addPlayResult(playResult);
+
+        System.out.println(playResult.getPlayValue());
 
         String result;
-        if (diceRollResult.isWin()) result = "You Win!";
+        if (playResult.isWin()) result = "You Win!";
         else result = "You Lose!";
 
         return result;
     }
 
-    public List<DiceRollResult> listRollResults()
+    public List<PlayResult> listPlayResults()
     {
-        return player.listRollResults();
+        return player.listPlayResults();
     }
 
     public String getSuccessRate()
